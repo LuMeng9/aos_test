@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<title>AOS test</title>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    <h1>Using AOS to Add Animations</h1>
+    <h2>Basic Animation</h2>
+    <p>You need to scroll down to see the effect.</p>
+    <div class="box a" data-aos="fade-up">
+        <h2>Animated using <code>fade-up</code>.</h2>
+    </div>
+    <div class="box b" data-aos="flip-down">
+        <h2>Animated using <code>flip-down</code>.</h2>
+    </div>
+    <div class="box b" data-aos="zoom-in">
+        <h2>Animated using <code>zoom-in</code>.</h2>
+    </div>
+
+</body>
+<script src="https://unpkg.com/aos@next/dist/aos.js">
+</script>
+<script>
+    AOS.init();
+
+    // You can also pass an optional settings object
+    // below listed default settings
+    AOS.init({
+        // Global settings:
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: 'aos-init', // class applied after initialization
+        animatedClassName: 'aos-animate', // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+        offset: 120, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 400, // values from 0 to 3000, with step 50ms
+        easing: 'ease', // default easing for AOS animations
+        once: false, // whether animation should happen only once - while scrolling down
+        mirror: false, // whether elements should animate out while scrolling past them
+        anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+    });
+
+    // document.addEventListener('aos:in', ({ detail }) => {
+    // console.log('animated in', detail);
+    // });
+
+    // document.addEventListener('aos:out', ({ detail }) => {
+    // console.log('animated out', detail);
+    // });
+</script>
+
+<style>
+    body {
+        font-size: 1.2em;
+        font-family: 'Lato';
+        font-weight: 300;
+        text-align: center;
+    }
+    
+    .box {
+        width: 40%;
+        height: 200px;
+        background: orange;
+        border-radius: 2px;
+        padding: 10px;
+        color: white;
+        text-align: center;
+    }
+    
+    .a {
+        margin: 120vh auto 0 auto;
+    }
+    
+    .b {
+        margin: 40vh auto 0 auto;
+    }
+</style>
+
+</html>
